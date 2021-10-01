@@ -16,7 +16,7 @@
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active"> Dom Casmurro - Capítulos </a>
             {% for cap, corp in dados.items() %}
-                <a href="/detalhes/{{ cap }}" class="list-group-item list-group-item-action">{{ cap }}</a>
+                <a href="/detalhes/?cap={{ cap }}" class="list-group-item list-group-item-action">{{ cap }}</a>
             {% endfor %}
           </div>
         </div>
