@@ -17,6 +17,21 @@
         <div class="col-md-12 col-lg-8">
           <h1 class="h2 mb-4">Submit issue</h1>
           <label>Describe the issue in detail</label>
+            <div class="py-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12" >
+                  <form class="form-inline" action="/detalhes/">
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="pesquisaTermo" name="pesquisaTermo" placeholder="Escreva" value="{{ busca }}">
+                      <input type="hidden" class="form-control" id="cap" name="cap" value="{{ cp }}">
+                        <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
              <textarea id="editor">{{ texto }}</textarea>
           </div>
@@ -24,7 +39,15 @@
         </div>
       </div>
     </div>
-
+    {% if encontrado %}
+        <script>
+            alert('Palavra {{ busca }} encontrada no Capítulo')
+        </script>
+    {% elif not encontrado and busca != '' %}
+        <script>
+            alert('Palavra {{ busca }} NÃO encontrada no Capítulo')
+        </script>
+    {% endif %}
     <!-- Optional JavaScript -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
