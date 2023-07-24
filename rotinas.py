@@ -38,9 +38,8 @@ def loadDados(index=''):
         else:
             capitulo = dados.split(
                 '\n' + rom_cap_inicio)[1].split('\n' + rom_cap_fim)[0]
-        conteudo['CAP: ' + rom_cap_inicio + ' >> ' + capitulo.replace('\n', '').replace('\r', '')[0:20].split('.')[0]] = \
-            capitulo.replace('\n', '<br>').replace('\r', '')
-    if index != '':
-        return conteudo[index]
-    else:
-        return conteudo
+        conteudo[
+            f'CAP: {rom_cap_inicio} >> '
+            + capitulo.replace('\n', '').replace('\r', '')[:20].split('.')[0]
+        ] = capitulo.replace('\n', '<br>').replace('\r', '')
+    return conteudo[index] if index != '' else conteudo

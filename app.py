@@ -11,11 +11,10 @@ def detalhes():  # put application's code here
     livro = loadDados(cp)
     encontrado = False
     print(busca)
-    if busca not in [None, "", '']:
-        if busca in livro:
-            encontrado = True
-    else:
+    if busca in [None, "", '']:
         busca = ''
+    elif busca in livro:
+        encontrado = True
     return render_template('app.html', texto=livro, cp=cp, busca=busca, encontrado=encontrado)
 
 
